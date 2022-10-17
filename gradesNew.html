@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <style>
+            .second-input{
+                margin-bottom: 20px;
+            }
+        </style>
+        <script>
+        
+        function changeColor(layer){
+            layer.style.backgroundColor = "#33C1FF";
+        };
+
+        function validate(){
+            const one = document.getElementById("casillaCelsius").value;
+            const two = document.getElementById("casillaKelvin").value;
+
+            if((one=="")&&(two=="")){
+                alert("Debes rellenar una de las casillas");
+                return;
+            }
+            if((one!="")&&(two!="")){
+                alert("Solo debes rellenar una casilla");
+                return;
+            }  
+            if((one!="")&&(two=="")){
+                document.getElementById("casillaKelvin").value = (parseFloat(one) + 273.15).toFixed(2)
+                }
+            if((one=="")&&(two!="")){
+                document.getElementById("casillaCelsius").value = (parseFloat(two) - 273.15).toFixed(2)
+            }   
+                
+            }   
+            
+        </script>
+        
+        <title>Conversor Grados</title>
+    </head>
+    
+    <body>
+        <h1> Conversor de grados:</h1>
+        <div>
+        <p id="name1">Celsius</p>
+        <input id="casillaCelsius" type="number" onclick="changeColor(this)">
+        <p id="name2">Kelvin</p>
+        <div class="second-input"><input id="casillaKelvin" type="number"></div>
+
+        <input id="submit" type="submit" value="Enviar" onclick="validate()">
+        </div>
+
+    </body>
+</html>
